@@ -1,22 +1,23 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import ListOfGifs from './components/ListOfGifs';
+import { Link, Route } from 'wouter';
 
 function App() {
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App-content">
+        <h2>App</h2>
+
+        <Link to='/gif/panda'>Gifs de pandas</Link>
+        <Link to='/gif/peru'>Gifs de Perú</Link>
+        <Link to='/gif/argentina'>Gifs de Argentina</Link>
+
+        <Route
+          component={ListOfGifs}
+          path='/gif/:keyword'></Route>
       </header>
     </div>
   );

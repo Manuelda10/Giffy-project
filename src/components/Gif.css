@@ -9,6 +9,16 @@
     color: #fff;
 }
 
+.Gif-link{
+    color: #000;
+    display: block;
+    text-decoration: none;
+    position: relative;
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+}
+
 .Gif h4{
     margin: 0;
 }

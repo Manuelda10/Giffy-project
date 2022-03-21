@@ -8,7 +8,7 @@ export default function useGifs({keyword} = {keyword : null} ) {
     const [loading, setLoading] = useState(false);
     const [loadingNextPage, setLoadingNextPage] = useState(false);
     const { gifs, setGifs } = useContext(GifsContext);
-    const { page, setPage } = useState(INITIAL_PAGE);
+    const [ page, setPage ] = useState(INITIAL_PAGE);
 
     const keywordToUse = keyword
             || localStorage.getItem("lastKeyword")

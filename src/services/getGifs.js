@@ -13,8 +13,8 @@ const fromApiResponseToGifs = apiResponse => {
   return []
 }
 
-export default function getGifs({limit=5, keyword = 'morty', page = 0} = {}) {
-    const urlAPI = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${page * limit}&rating=g&lang=en`;
+export default function getGifs({limit=5, keyword = 'morty', page = 0, rating = 'g'} = {}) {
+    const urlAPI = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${page * limit}&rating=${rating}&lang=en`;
 
     return fetch(urlAPI)
       .then(res => res.json())

@@ -4,7 +4,7 @@ import SearchResults from './pages/SearchResults'
 import Details from './pages/Details';
 import StaticContext from './context/StaticContext'
 
-import { Link, Route } from 'wouter';
+import { Route } from 'wouter';
 import { GifsContextProvider } from './context/GifsContext';
 
 const HomePage = React.lazy(() => import('./pages/Home'));
@@ -18,7 +18,7 @@ function App() {
           <Suspense fallback={null}>
             <GifsContextProvider>
               <Route component={HomePage} path="/"/>
-              <Route component={SearchResults} path="/search/:keyword" />
+              <Route component={SearchResults} path="/search/:keyword/:rating?" />
               <Route component={Details} path='/gif/:id' />
               <Route component={() => <h1>404 Error :c </h1> } path="/404" />
             </GifsContextProvider>

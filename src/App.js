@@ -2,32 +2,38 @@ import React, { Suspense } from 'react'
 import './App.css';
 import SearchResults from './pages/SearchResults'
 import Details from './pages/Details';
-import StaticContext from './context/StaticContext'
+import Header from 'components/Header';
+import Login from 'pages/Login';
 
-import { Route } from 'wouter';
+import { Route, Link } from 'wouter';
 import { GifsContextProvider } from './context/GifsContext';
+import { UserContextProvider } from 'context/UserContext';
 
 const HomePage = React.lazy(() => import('./pages/Home'));
 
 function App() {
   return (
-    <StaticContext.Provider value={{name: 'Manuel', suscribete: true}}>
+    <UserContextProvider value={{name: 'Manuel', suscribete: true}}>
       <div className="App">
-        <header className="App-content">
-          <h2>App</h2>
+        <section className="App-content">
+          <Header/>
+          <Link to='/'>
+            Giffy
+          </Link>
           <Suspense fallback={null}>
             <GifsContextProvider>
               <Route component={HomePage} path="/"/>
               <Route component={SearchResults} path="/search/:keyword/:rating?" />
               <Route component={Details} path='/gif/:id' />
+              <Route component={Login} path='/login' />
               <Route component={() => <h1>404 Error :c </h1> } path="/404" />
             </GifsContextProvider>
           </Suspense>
           
           
-        </header>
+        </section>
       </div>
-    </StaticContext.Provider>
+    </UserContextProvider>
 
     
   );

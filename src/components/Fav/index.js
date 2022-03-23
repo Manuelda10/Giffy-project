@@ -21,19 +21,23 @@ export default function Fav({ id }) {
         setShowModal(false)
     }
 
+    const handleLogin = () => {
+        setShowModal(false)
+    }
+
     const [
         label,
         emoji
     ] = isFaved
             ? ['Remove Gif from favorites', 'X']
-            : ['Add Gif to favorites', '<3']
+            : ['Add Gif to favorites', '❤️']
 
     return (
         <>
             <button onClick={handleClick} className='gf-Fav'>
-                <span aria-label='Fav Gif' role='img'> ❤️</span>
+                <span aria-label={label} role='img'> {emoji} </span>
             </button>
-            {showModal && <Modal onClose={handleClose}><Login/></Modal>}
+            {showModal && <Modal onClose={handleClose}><Login onLogin={handleLogin} /></Modal>}
         </>
     )
     

@@ -8,6 +8,15 @@
   cursor: pointer;
 }
 
+.gifs-content-title{
+  text-align: left;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+
+
 .App-content {
   background-color: hsl(220, 14%, 4%);
   min-height: 100vh;
@@ -25,8 +34,15 @@
 }
 
 a{
-  color: #09f;
-  font-size: 32px;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .search-form{
@@ -48,6 +64,11 @@ a{
   font-weight: 500;
 }
 
+.search-form button:hover{
+  background-color: #a3007a;
+  border-color: #a3007a;
+}
+
 .search-form input{
   width: 50%;
   height: 1.6rem;
@@ -62,6 +83,72 @@ a{
   background-color: #9223A1;
   color: white;
   font-weight: 500;
+}
+.home-content{
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.gifs-content{
+  width: calc(95% - 20rem);
+  min-width: 30rem;
+  margin-bottom: 1rem;
+}
+
+.tendencias-content{
+  width: 20rem;
+}
+
+.tendencias-content a{
+  padding: 0 8px 0 8px;
+}
+
+.category-list li{
+  margin: 2px;
+}
+
+.bg0{
+  background-color: #9223A1;
+}
+.bg1{
+  background-color: #c06084;
+}
+.bg2{
+  background-color: #6c567b;
+}
+.bg3{
+  background-color: #f7d1c2;
+  color: black;
+}
+
+.bg0:hover, .bg1:hover, .bg2:hover, .bg3:hover{
+  background-color: brown;
+  color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .gifs-content{
+    min-width: 0;
+    width: 100%;
+  }
+
+  .search-form{
+    width: 18rem;
+  }
+  .search-form button{
+    width: 25%;
+  }
+
+  .search-form input{
+    width: 48%;
+  }
+  
+  .search-form select{
+    width: 23%;
+  }
 }
 
 @keyframes App-logo-spin {

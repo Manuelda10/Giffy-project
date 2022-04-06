@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
 import registerService from 'services/register'
 import { useForm } from 'react-hook-form'
-import { ErrorMessage } from '@hookform/error-message'
 
 export default function Register() {
-    const {handleSubmit, register, errors} = useForm()
+    const {handleSubmit, register} = useForm()
     const [registered, setRegistered] = useState(false)
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -24,10 +23,8 @@ export default function Register() {
 
     return <>
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input name='username' placeholder='Pon tu username' ref={register({ required: 'This is required' })} ></input>
-            <ErrorMessage errors={errors} name='username' as='span' />
-            <input name='password' placeholder='Pon tu password' ref={register} type='password' ></input>
-            <ErrorMessage errors={errors} name='username' as={<span></span>} />
+            <input name='username' placeholder='Pon tu username' {...register("username", { required: 'This is required' })} ></input>
+            <input name='password' placeholder='Pon tu password' {...register("password", {required: 'This is required'})} type='password' ></input>
             <button disabled={isSubmitting} >Registrarse</button>
         </form>
     </>

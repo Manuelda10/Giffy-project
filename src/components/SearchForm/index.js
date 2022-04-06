@@ -4,15 +4,22 @@ import useForm from './hook';
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r'];
 
-export function SearchForm({initialRating, initialKeyword = ''}) {
+export function SearchForm({initialRating, initialKeyword = ''} = {}) {
     // const [rating, setRating] = useState(initialRating);
-    const { keyword, rating, times, updateKeyword, updateRating } = useForm({initialKeyword, initialRating});
+    // me volé times de useForm, podría incluirlo
+    const { keyword, rating, updateKeyword, updateRating } = useForm({initialKeyword, initialRating});
  
-    const [path, pushLocation] = useLocation();
+    const [, pushLocation] = useLocation();
 
+
+    /*Si no hay una keyword de entrada, busca a Messi*/ 
      const handleSubmit = (e) => {
          e.preventDefault();
-         pushLocation(`/search/${keyword}/${rating}`);
+         if (keyword === '') {
+             pushLocation(`/search/Messi/${rating}`);
+         } else {
+             pushLocation(`/search/${keyword}/${rating}`);
+         }
     }
 
     const handleChange = (e) => {

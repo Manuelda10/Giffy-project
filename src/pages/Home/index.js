@@ -16,10 +16,15 @@ export default function Home() {
                 <title>Home | Giffy</title>
             </Helmet>
             <SearchForm />
-            <h3 className='App-title'>Última búsqueda</h3>
-            <ListOfGifs gifs={gifs} />
-            <h3 className='App-title'>Los gifs más populares</h3>
-            <TrendingSearches/>
+            <div className='home-content'>
+                <div className='gifs-content'>
+                    <h3 className='gifs-content-title'>Última búsqueda</h3>
+                    <ListOfGifs gifs={gifs} />
+                </div>
+                <div className='tendencias-content'>
+                    <TrendingSearches/>
+                </div>
+            </div>
         </>
     )
 }

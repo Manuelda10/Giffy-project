@@ -23,8 +23,10 @@ export function SearchForm({initialRating, initialKeyword = ''}) {
         updateRating(e.target.value)
     }
 
+
+    /*<small>{times}</small> ---> va al final del select*/
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='search-form' onSubmit={handleSubmit}>
                 <button>Buscar</button>
             <input onChange={handleChange} value={keyword} type='text' placeholder='Ingresa el gif a buscar' />
             <select value={rating} onChange={handleChangeRating}>
@@ -32,7 +34,7 @@ export function SearchForm({initialRating, initialKeyword = ''}) {
                     {rating}
                 </option>)}
             </select>
-            <small>{times}</small>
+            
         </form>
     )
 }

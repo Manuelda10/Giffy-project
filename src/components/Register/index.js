@@ -1,55 +1,34 @@
 import React, {useState} from 'react'
-import register from 'services/register'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-
-const validateFields = values => {
-    const errors = {}
-    if (!values.username) {
-        errors.username = 'Required username'
-    }
-
-    if (!values.password) {
-        errors.password = 'Required password'
-    } else if (values.password.length < 3) {
-        errors.password = 'Length must be greater than 3'
-    }
-}
-
-const initialValues = {
-    username: '',
-    password: ''
-}
+import registerService from 'services/register'
+import { useForm } from 'react-hook-form'
+import { ErrorMessage } from '@hookform/error-message'
 
 export default function Register() {
+    const {handleSubmit, register, errors} = useForm()
     const [registered, setRegistered] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const onSubmit = values => {
+        setIsSubmitting(true)
+        console.log(values)
+        registerService(values)
+            .then(() => { 
+                setRegistered(true)
+                setIsSubmitting(false)
+            })
+    }
 
     if (registered) {
         return <h2>Congratulations! You've been successfully registered!</h2>
     }
 
     return <>
-        <h2>Formulario de Registro</h2>
-        <Formik
-            initialValues={initialValues}
-            validate={validateFields}
-            onSubmit={(values, {setFieldError}) => {
-                return register(values).then(() => setRegistered(true)).catch(() => {
-                    setFieldError('username', 'This username is not valid')
-                })
-            }}
-        >
-            {
-                ({errors, isSubmitting}) => <Form>
-                    <Field name='username' placeholder='username' ></Field>
-                    <ErrorMessage name='username' component='small' />
-                    <Field name='password' placeholder='password' type='password' ></Field>
-                    <ErrorMessage name='password' component='small' />
-                    <button className='btn' disabled={isSubmitting} >
-                        Registrarse
-                    </button>
-                    {console.log(errors)}
-                </Form>
-            }
-        </Formik>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <input name='username' placeholder='Pon tu username' ref={register({ required: 'This is required' })} ></input>
+            <ErrorMessage errors={errors} name='username' as='span' />
+            <input name='password' placeholder='Pon tu password' ref={register} type='password' ></input>
+            <ErrorMessage errors={errors} name='username' as={<span></span>} />
+            <button disabled={isSubmitting} >Registrarse</button>
+        </form>
     </>
 }

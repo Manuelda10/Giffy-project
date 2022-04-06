@@ -1,9 +1,15 @@
 .App {
+  width: 100%;
   text-align: center;
 }
 
+.logo{
+  width: 15rem;
+  cursor: pointer;
+}
+
 .App-content {
-  background-color: #282c34;
+  background-color: hsl(220, 14%, 4%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,6 +27,41 @@
 a{
   color: #09f;
   font-size: 32px;
+}
+
+.search-form{
+  margin-top: 1rem;
+  width: 20rem;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.search-form button{
+  background-color: #9223A1;
+  border-radius: 2px;
+  border-color: #9223A1;
+  width: 30%;
+  height: 2rem;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.search-form input{
+  width: 50%;
+  height: 1.6rem;
+  font-size: 14px;  
+  outline: none;
+}
+
+.search-form select{
+  width: 17%;
+  height: 2rem;
+  font-size: 14px;
+  background-color: #9223A1;
+  color: white;
+  font-weight: 500;
 }
 
 @keyframes App-logo-spin {

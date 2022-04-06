@@ -15,9 +15,7 @@ export default function Home() {
             <Helmet>
                 <title>Home | Giffy</title>
             </Helmet>
-            <h3 className='App-title'>Los gifs más populares</h3>
             <SearchForm />
-
             <h3 className='App-title'>Última búsqueda</h3>
             <ListOfGifs gifs={gifs} />
             <h3 className='App-title'>Los gifs más populares</h3>

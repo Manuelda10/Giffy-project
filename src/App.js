@@ -5,6 +5,7 @@ import Details from './pages/Details';
 import Header from 'components/Header';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
+import logo from 'assets/logo2.png';
 
 import { Route, Link } from 'wouter';
 import { GifsContextProvider } from './context/GifsContext';
@@ -19,7 +20,7 @@ function App() {
         <section className="App-content">
           <Header/>
           <Link to='/'>
-            Giffy
+            <img className='logo' src={logo} alt='logo' />
           </Link>
           <Suspense fallback={null}>
             <GifsContextProvider>
@@ -31,8 +32,6 @@ function App() {
               <Route component={() => <h1>404 Error :c </h1> } path="/404" />
             </GifsContextProvider>
           </Suspense>
-          
-          
         </section>
       </div>
     </UserContextProvider>

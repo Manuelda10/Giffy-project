@@ -1,11 +1,12 @@
 import useUser from 'hooks/useUser';
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'wouter'
+import './Login.css'
 
 export default function Login({onLogin}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [path, navigate] = useLocation();
+    const [, navigate] = useLocation();
     const { login, isLogged, isLoginLoading, hasLoginError } = useUser();
 
     useEffect(() => {

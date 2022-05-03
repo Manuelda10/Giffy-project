@@ -6,7 +6,7 @@ import 'boxicons'
 function Modal({children, onClose}) {
     return <div className='modal'>
         <div className='modal-content'>
-            <button className='close-btn' onClick={onClose}><box-icon name='x' size='sm' animation='spin-hover'></box-icon></button>
+            <button className='close-btn' onClick={onClose}><box-icon type='regular' name='x' size='sm' animation='spin-hover'></box-icon></button>
             {children}
         </div>
     </div>

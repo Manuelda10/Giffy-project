@@ -12,9 +12,9 @@ export default function Fav({ id }) {
 
     const isFaved = favs.some(favID => favID === id)
 
-    const handleClick = () => {
-        if(!isLogged) return setShowModal(true)
-        addFav({ id })
+    const handleClick = (e) => {
+        e.target.classList.toggle("bg-white")
+        e.target.parentElement.classList.toggle("bg-white")
     }
 
     const handleClose = () => {

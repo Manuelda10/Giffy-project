@@ -18,3 +18,10 @@
     width: 25px;
 }
 
+.bg-white{
+    background-color: white;
+}
+
+.bg-transparent{
+    background-color: transparent;
+}

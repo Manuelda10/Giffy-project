@@ -23,7 +23,7 @@ export default function Register() {
 
     return <>
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input name='username' placeholder='Pon tu username' {...register("username", { required: 'This is required' })} ></input>
+            <input name='email' placeholder='Pon tu email' {...register("email", { required: 'This is required' })} type='email' ></input>
             <input name='password' placeholder='Pon tu password' {...register("password", {required: 'This is required'})} type='password' ></input>
             <button disabled={isSubmitting} >Registrarse</button>
         </form>

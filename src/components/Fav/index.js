@@ -13,8 +13,13 @@ export default function Fav({ id }) {
     const isFaved = favs.some(favID => favID === id)
 
     const handleClick = (e) => {
-        e.target.classList.toggle("bg-white")
-        e.target.parentElement.classList.toggle("bg-white")
+        if (e.target.matches("button")) {
+            e.target.classList.toggle("bg-white")
+            e.target.firstElementChild.classList.toggle("bg-white")
+        } else {
+            e.target.classList.toggle("bg-white")
+            e.target.parentElement.classList.toggle("bg-white")
+        }
     }
 
     const handleClose = () => {
